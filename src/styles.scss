@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+$font-weights: (
+    regular: 400,
+    semibold: 600,
+    bold: 700
+);
+
+@mixin font-style($weight) {
+    $weight-value: map-get($font-weights, $weight);
+
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: $weight-value;
+    font-style: normal;
+}
+
+.radio-canada-big-regular {
+    @include font-style(regular);
+}
+
+.radio-canada-big-semibold {
+    @include font-style(semibold);
+}
+
+.radio-canada-big-bold {
+    @include font-style(bold);
+}
+
+h1 {
+    @extend .radio-canada-big-bold;
+}
+
+h2, h3{
+    @extend .radio-canada-big-semibold;
+}
+
+button{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover{
+    transition: 0.5s;
+}
+

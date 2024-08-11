@@ -1,0 +1,29 @@
+header {
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-size: 40pt;
+        margin: 0rem;
+    }
+}
+
+main {
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem;
+    }
+}

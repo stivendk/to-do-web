@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  svgPath: '/assets/img/',
+  apiHost: 'http://localhost:8080'
 };

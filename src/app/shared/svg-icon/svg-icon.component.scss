@@ -1,0 +1,12 @@
+.cross-hover {
+  transition: fill 0.3s ease;
+}
+
+.cross-hover:hover {
+  fill: #ff0000;
+  /* Cambia el color en hover */
+}
+
+.color-hover:hover {
+  fill: #fff;
+}

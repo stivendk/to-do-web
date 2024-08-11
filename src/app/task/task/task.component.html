@@ -1,0 +1,57 @@
+<section class="task-form">
+    <div class="buttons">
+        <a routerLink="/">
+            <app-svg-icon svgName="left-arrow" [size]="'40px'" [isCross]="true">
+            </app-svg-icon>
+        </a>
+        <a *ngIf="isEditMode" type="button" (click)="removeTask()">
+            <app-svg-icon svgName="trash" [size]="'40px'" [color]="'#dc3545'" [isCross]="true">
+            </app-svg-icon>
+        </a>
+    </div>
+
+    <h2>{{ isEditMode ? 'Editar Tarea' : 'Crear Tarea' }}</h2>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+            <label for="title">Título:</label>
+            <input id="title" (input)="invalidField('title')" formControlName="title" type="text" [ngClass]="{'error-border': errors['title']}">
+            <div *ngIf="errors['title']" class="error-messages">
+                <div *ngFor="let error of errors['title']">{{ error }}</div>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="description">Descripción:</label>
+            <textarea id="description" formControlName="description" [ngClass]="{'error-border': errors['description']}" (input)="invalidField('description')"></textarea>
+            <div *ngIf="errors['description']" class="error-messages">
+                <div *ngFor="let error of errors['description']">{{ error }}</div>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="priority">Prioridad:</label>
+            <select id="priority" (click)="invalidField('priority')" formControlName="priority" [ngClass]="{'error-border': errors['priority']}">
+                <option *ngFor="let priority of priorities" [value]="priority">{{ priority | enumPriority }}</option>
+            </select>
+            <div *ngIf="errors['priority']" class="error-messages">
+                <div *ngFor="let error of errors['priority']">{{ error }}</div>
+            </div>
+        </div>
+
+        <div class="form-field" *ngIf="isEditMode">
+            <label for="status">Estado:</label>
+            <select id="status" formControlName="status">
+                <option *ngFor="let status of statuses" [value]="status">{{ status | enumStatus }}</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-cancel" type="button" (click)="onCancel()">Cancelar</button>
+            <button class="btn-edit" type="submit">{{ isEditMode ? 'Editar' : 'Crear' }}</button>
+        </div>
+    </form>
+
+    <app-confirm-modal *ngIf="showModal" (confirmAction)="confirmRemoveTask()"
+        (cancelAction)="cancelModal()"></app-confirm-modal>
+</section>

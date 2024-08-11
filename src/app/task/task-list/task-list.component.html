@@ -1,0 +1,66 @@
+<section>
+
+    <div class="filter">
+        <button class="radio-canada-big-semibold" (click)="toggleShowFilters()">
+            <app-svg-icon [svgName]="iconFilterName" [size]="'30px'" [isCross]="true"></app-svg-icon>
+            Filtros
+        </button>
+        <button class="radio-canada-big-semibold" (click)="createTask()">
+            <app-svg-icon svgName="plus" [size]="'30px'" [isCross]="true"></app-svg-icon>
+            Crear Tarea
+        </button>
+    </div>
+
+    <div class="btn-filter" *ngIf="isFilter">
+        <div class="btn-filter-group">
+            <h3>Prioridad</h3>
+            <button *ngFor="let priority of priorities" (click)="toggleFilter('priority', priority.value)"
+                [ngClass]="{'selected': isPrioritySelected(priority.value)}">
+                {{ priority.name }}
+            </button>
+        </div>
+        <div class="btn-filter-group">
+            <h3>Estado</h3>
+            <button *ngFor="let status of statuses" (click)="toggleFilter('status', status.value)"
+                [ngClass]="{'selected': isStatusSelected(status.value)}">
+                {{ status.name }}
+            </button>
+        </div>
+    </div>
+
+    <div class="notes-container">
+
+        <div *ngIf="!tasks.length; else dataTasks" class="data">
+            <h1>No hay tareas.</h1>
+        </div>
+
+        <ng-template #dataTasks>
+            <div *ngFor="let task of tasks; let i = index" [ngClass]="{ 
+                'note-long': i % 3 === 0, 
+                'note-medium': i % 3 === 1, 
+                'note-short': i % 3 === 2
+                }">
+                <div class="note-title">
+                    <h3 class="radio-canada-big-semibold">{{task.title}}</h3>
+                </div>
+                <div class="note-date radio-canada-big-regular">
+                    Publicado: {{task.createdAt | date: 'MM/dd/yyyy, h:mm a' }}
+                </div>
+                <div class="note-btn">
+                    <button (click)="openTask(task)">Ver</button>
+                    <div class="note-tags">
+                        <div [ngClass]="{
+                            'priority-high': task.priority === 'HIGH',
+                            'priority-medium': task.priority === 'MEDIUM',
+                            'priority-low': task.priority === 'LOW'}">{{task.priority | enumPriority}}</div>
+                        <div [ngClass]="{
+                            'status-completed': task.status === 'COMPLETED',
+                            'status-in-progress': task.status === 'IN_PROGRESS',
+                            'status-to-do': task.status === 'TO_DO'}">{{task.status | enumStatus}}</div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</section>

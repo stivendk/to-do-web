@@ -1,0 +1,105 @@
+@import 'src/styles.scss';
+
+input,
+textarea,
+select {
+    @extend .radio-canada-big-regular;
+    font-size: 14pt;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; // Asegura que el padding y border se incluyan en el ancho total
+}
+
+.task-form {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+
+    h2 {
+        text-align: center;
+    }
+
+
+    label {
+        @extend .radio-canada-big-semibold;
+        font-size: 14pt;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 1.1rem;
+        background-color: #eeeeee;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button {
+        color: #fff;
+        padding: 1.5rem;
+        font-size: 12pt;
+    }
+
+    .btn-edit {
+        background-color: #007bff;
+    }
+
+    .btn-edit:hover {
+        background-color: #0256af;
+    }
+
+    .btn-cancel {
+        background-color: #6c757d;
+    }
+
+    .btn-cancel:hover {
+        background-color: #34383b;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+    }
+
+    .btn-delete:hover {
+        background-color: rgb(145, 10, 10);
+    }
+
+    a {
+        cursor: pointer;
+    }
+}
+
+.form-field{
+    margin-bottom: 1rem;
+}
+
+.error-messages {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.error-border {
+    border: 2px solid red !important;
+}
