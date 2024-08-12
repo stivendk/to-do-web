@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { TaskComponent } from './task.component';
 import { TaskService } from '../services/task.service';
-import { Task } from '../shared/models/task.model';
+import { TaskModel } from '../shared/models/task.model';
 import { PriorityEnum } from '../shared/enums/priority.enum';
 import { TaskStatusEnum } from '../shared/enums/task-status.enum';
 import { ResponseModel } from '../shared/models/response.model';
@@ -56,7 +56,7 @@ describe('TaskComponent', () => {
   });
 
   it('should initialize form for editing mode if taskId is present', () => {
-    const task: Task = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
+    const task: TaskModel = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
     taskService.getTask.and.returnValue(of({ data: task }));
 
     component.ngOnInit();
@@ -78,7 +78,7 @@ describe('TaskComponent', () => {
       priority: PriorityEnum.HIGH
     };
     
-    const createdTask: Task = { 
+    const createdTask: TaskModel = { 
       id: 1,
       ...taskToCreate,
       status: TaskStatusEnum.TO_DO,
@@ -86,7 +86,7 @@ describe('TaskComponent', () => {
       updatedAt: new Date()
     };
   
-    const responseTask: ResponseModel<Task> = { data: createdTask };
+    const responseTask: ResponseModel<TaskModel> = { data: createdTask };
     (taskService.createTask as jasmine.Spy).and.returnValue(of(responseTask));
     
     component.taskForm.patchValue(taskToCreate);
@@ -99,7 +99,7 @@ describe('TaskComponent', () => {
   
   
   it('should submit form for updating an existing task', () => {
-    const updatedTask: Task = { 
+    const updatedTask: TaskModel = { 
       id: 1, 
       title: 'Updated Task', 
       description: 'Updated Description', 
@@ -109,14 +109,14 @@ describe('TaskComponent', () => {
       updatedAt: new Date() 
     };
   
-    const taskToUpdate: Partial<Task> = {
+    const taskToUpdate: Partial<TaskModel> = {
       title: 'Updated Task',
       description: 'Updated Description',
       priority: PriorityEnum.MEDIUM,
       status: TaskStatusEnum.IN_PROGRESS
     };
   
-    const responseTask: ResponseModel<Task> = { data: updatedTask };
+    const responseTask: ResponseModel<TaskModel> = { data: updatedTask };
     taskService.updateTask.and.returnValue(of(responseTask));
     
     component.taskForm.setValue({
@@ -144,7 +144,7 @@ describe('TaskComponent', () => {
   });
 
   it('should confirm and delete a task', () => {
-    const task: Task = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
+    const task: TaskModel = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
     component.taskToDelete = task;
     taskService.deleteTask.and.returnValue(of({}));
 

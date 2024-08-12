@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PriorityEnum } from '../shared/enums/priority.enum';
 import { TaskStatusEnum } from '../shared/enums/task-status.enum';
-import { Task } from '../shared/models/task.model';
 import { Router } from '@angular/router';
 import { TaskStatusEnumMap } from 'src/app/shared/maps/status-enum.map';
 import { PriorityEnumMap } from 'src/app/shared/maps/priority-enum.map';
 import { TaskService } from 'src/app/core/services/task.service';
+import { TaskModel } from '../shared/models/task.model';
 
 @Component({
   selector: 'app-task-list',
@@ -16,7 +16,7 @@ export class TaskListComponent implements OnInit {
 
   isFilter = false;
   iconFilterName = 'panel';
-  tasks: Task[] = [];
+  tasks: TaskModel[] = [];
   selectedPriority: PriorityEnum | undefined;
   selectedStatus: TaskStatusEnum | undefined;
   priorities = Object.values(PriorityEnumMap);
@@ -78,7 +78,7 @@ export class TaskListComponent implements OnInit {
     this.loadAllTasks();
   }
   
-  public openTask(task: Task){
+  public openTask(task: TaskModel){
     this.router.navigate([`tasks/${task.id}`]);
   }
   

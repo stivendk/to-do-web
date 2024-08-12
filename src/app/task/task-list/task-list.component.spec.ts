@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskListComponent } from './task-list.component';
 import { TaskService } from '../services/task.service';
 import { Router } from '@angular/router';
-import { Task } from '../shared/models/task.model';
+import { TaskModel } from '../shared/models/task.model';
 import { PriorityEnum } from '../shared/enums/priority.enum';
 import { TaskStatusEnum } from '../shared/enums/task-status.enum';
 import { of } from 'rxjs';
@@ -62,7 +62,7 @@ describe('TaskListComponent', () => {
   });
 
   it('should navigate to task detail', () => {
-    const task: Task = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
+    const task: TaskModel = { id: 1, title: 'Test Task', description: 'Test Description', priority: PriorityEnum.HIGH, status: TaskStatusEnum.TO_DO, createdAt: new Date(), updatedAt: new Date() };
 
     component.openTask(task);
 

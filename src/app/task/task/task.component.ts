@@ -5,10 +5,10 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PriorityEnum } from '../shared/enums/priority.enum';
 import { TaskStatusEnum } from '../shared/enums/task-status.enum';
-import { Task } from '../shared/models/task.model';
 import { ErrorMessages } from '../../shared/models/error-messages.model';
 import { ErrorMessageService } from 'src/app/core/services/error-message-form.service';
 import { TaskService } from 'src/app/core/services/task.service';
+import { TaskModel } from '../shared/models/task.model';
 
 @Component({
   selector: 'app-task',
@@ -21,7 +21,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   showModal: boolean = false;
   isEditMode: boolean = false;
   taskId: number | null = null;
-  taskToDelete: Task | null = null;
+  taskToDelete: TaskModel | null = null;
   private unsubscribe$ = new Subject<void>();
 
   priorities = Object.values(PriorityEnum);
