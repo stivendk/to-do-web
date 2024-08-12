@@ -6,9 +6,9 @@ import { TaskRoutingModule } from './task-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
-import { EnumStatusPipe } from './pipes/enum-status.pipe';
-import { EnumPriorityPipe } from './pipes/enum-priority.pipe';
-import { ErrorMessageService } from '../shared/services/error-message-form.service';
+import { EnumStatusPipe } from './shared/pipes/enum-status.pipe';
+import { EnumPriorityPipe } from './shared/pipes/enum-priority.pipe';
+import { ErrorMessageService } from '../core/services/error-message-form.service';
 
 @NgModule({
   declarations: [

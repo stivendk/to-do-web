@@ -1,4 +1,4 @@
-import { PriorityEnum } from '../../task/enums/priority.enum';
+import { PriorityEnum } from '../../task/shared/enums/priority.enum';
 
 export const PriorityEnumMap = {
     [PriorityEnum.HIGH]: {name: 'Alta', value: PriorityEnum.HIGH},

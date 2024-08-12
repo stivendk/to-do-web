@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../services/task.service';
-import { PriorityEnum } from '../enums/priority.enum';
-import { TaskStatusEnum } from '../enums/task-status.enum';
-import { Task } from '../models/task.model';
+import { PriorityEnum } from '../shared/enums/priority.enum';
+import { TaskStatusEnum } from '../shared/enums/task-status.enum';
+import { Task } from '../shared/models/task.model';
 import { Router } from '@angular/router';
 import { TaskStatusEnumMap } from 'src/app/shared/maps/status-enum.map';
 import { PriorityEnumMap } from 'src/app/shared/maps/priority-enum.map';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-task-list',

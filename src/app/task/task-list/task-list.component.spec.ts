@@ -3,12 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskListComponent } from './task-list.component';
 import { TaskService } from '../services/task.service';
 import { Router } from '@angular/router';
-import { Task } from '../models/task.model';
-import { PriorityEnum } from '../enums/priority.enum';
-import { TaskStatusEnum } from '../enums/task-status.enum';
+import { Task } from '../shared/models/task.model';
+import { PriorityEnum } from '../shared/enums/priority.enum';
+import { TaskStatusEnum } from '../shared/enums/task-status.enum';
 import { of } from 'rxjs';
-import { EnumPriorityPipe } from '../pipes/enum-priority.pipe';
-import { EnumStatusPipe } from '../pipes/enum-status.pipe';
+import { EnumPriorityPipe } from '../shared/pipes/enum-priority.pipe';
+import { EnumStatusPipe } from '../shared/pipes/enum-status.pipe';
 
 class MockTaskService {
   getAllTasks() {

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { switchMap } from 'rxjs';
-import { SvgService } from '../services/svg.service';
+import { SvgService } from '../../core/services/svg.service';
 
 @Component({
   selector: 'app-svg-icon',

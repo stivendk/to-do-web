@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PriorityEnum } from '../enums/priority.enum';
-import { TaskStatusEnum } from '../enums/task-status.enum';
-import { TaskService } from '../services/task.service';
-import { Task } from '../models/task.model';
-import { ErrorMessages } from '../models/error-messages.model';
-import { ErrorMessageService } from 'src/app/shared/services/error-message-form.service';
+import { PriorityEnum } from '../shared/enums/priority.enum';
+import { TaskStatusEnum } from '../shared/enums/task-status.enum';
+import { Task } from '../shared/models/task.model';
+import { ErrorMessages } from '../../shared/models/error-messages.model';
+import { ErrorMessageService } from 'src/app/core/services/error-message-form.service';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-task',

@@ -5,15 +5,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { TaskComponent } from './task.component';
 import { TaskService } from '../services/task.service';
-import { Task } from '../models/task.model';
-import { PriorityEnum } from '../enums/priority.enum';
-import { TaskStatusEnum } from '../enums/task-status.enum';
-import { ResponseModel } from '../models/response.model';
-import { EnumPriorityPipe } from '../pipes/enum-priority.pipe';
-import { EnumStatusPipe } from '../pipes/enum-status.pipe';
+import { Task } from '../shared/models/task.model';
+import { PriorityEnum } from '../shared/enums/priority.enum';
+import { TaskStatusEnum } from '../shared/enums/task-status.enum';
+import { ResponseModel } from '../shared/models/response.model';
+import { EnumPriorityPipe } from '../shared/pipes/enum-priority.pipe';
+import { EnumStatusPipe } from '../shared/pipes/enum-status.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { RequestModel } from '../models/request.model';
-import { ErrorMessageService } from 'src/app/shared/services/error-message-form.service';
+import { RequestModel } from '../shared/models/request.model';
+import { ErrorMessageService } from 'src/app/core/services/error-message-form.service';
 
 describe('TaskComponent', () => {
   let component: TaskComponent;
